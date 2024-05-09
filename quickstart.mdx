@@ -1,0 +1,63 @@
+---
+title: "Quickstart"
+description: "Set up your first Caesar web app."
+---
+
+## Check out requirements
+
+Before creating a new application, make sure that you have Go installed on your machine, with a version of at least `1.22`.<br />
+If you don't have Go installed, you can download it [here](https://golang.org/dl/).
+
+In order to install npm modules (such as TailwindCSS), you will need Node.js and npm installed. <br />
+You can download Node.js [here](https://nodejs.org/en/download/).
+
+## Setup your web app
+
+<AccordionGroup>
+  <Accordion title="Install CLI tools">
+Open a terminal and run the following commands to install the required CLI tools:
+
+```bash
+# Install the Caesar CLI
+go install github.com/caesar-rocks/cli@latest
+
+# Install the Air CLI (for hot reloading)
+go install github.com/cosmtrek/air@latest
+
+# Install the Templ CLI (for templating)
+go install github.com/a-h/templ/cmd/templ@latest
+```
+  </Accordion>
+
+  <Accordion title="Creating a new application">
+    In a new terminal, run the following command to scaffold a new Caesar application:
+
+```bash
+caesar init
+```
+
+This will create a new directory with the name of your application, and a basic structure for your web app.
+  </Accordion>
+</AccordionGroup>
+
+## Starting the development server
+
+To start the development server, run the following commands:
+
+```bash
+# Change directory to your app
+cd <app_name>
+
+# Start the development server
+caesar dev
+```
+
+This will start the development server on `http://localhost:3000`.
+
+## VSCode extensions
+
+If you are using Visual Studio Code, you can install the following extensions to improve your development experience:
+
+- [Go](https://marketplace.visualstudio.com/items?itemName=golang.Go)
+- [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
+- [templ-vscode](https://marketplace.visualstudio.com/items?itemName=a-h.templ)
