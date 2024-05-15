@@ -24,6 +24,10 @@
     {
       "group": "Get Started",
       "pages": ["introduction", "quickstart"]
+    },
+    {
+      "group": "Basics",
+      "pages": ["basics/routing", "basics/validation"]
     }
   ],
   "footerSocials": {

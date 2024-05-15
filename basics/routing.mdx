@@ -1,0 +1,74 @@
+---
+title: "Routing"
+description: "Learn how to define routes in your Caesar web app."
+---
+
+In a Caesar web app, routes are defined in the `config/routes.go` file. This file is used to define the routes for your web app, and is where you can define the handlers for each route.
+
+```go config/routes.go
+func RegisterRoutes(
+// Inject your controllers here...
+) *core.Router {
+	router := core.NewRouter()
+	router.Render("/", pages.WelcomePage())
+
+	return router
+}
+```
+
+## List the registered routes in your app
+
+The `caesar list:routes` command will list all the routes that are registered in your app.
+
+```bash
+caesar list:routes
+```
+
+## Defining routes
+
+### Rendering pages
+
+To render a page, use the `Render` method on the router. The `Render` method takes two arguments: the route path and the handler function.
+
+```go
+router.Render("/", pages.WelcomePage())
+```
+
+### HTTP methods
+
+To define a route that responds to a specific HTTP method, use the `Get`, `Post`, `Put`, `Patch`, `Delete`, or `Options` methods on the router.
+
+```go
+router.Get("/users", func(ctx *core.CaesarCtx) error {
+    return ctx.SendText("List of users")
+})
+
+router.Post("/users", func(ctx *core.CaesarCtx) error {
+    return ctx.SendText("Create a new user")
+})
+
+
+router.Put("/users/{id}", func(ctx *core.CaesarCtx) error {
+    return ctx.SendText("Update user with id " + ctx.PathValue("id"))
+})
+
+router.Patch("/users/{id}", func(ctx *core.CaesarCtx) error {
+    return ctx.SendText("Patch user with id " + ctx.PathValue("id"))
+})
+
+router.Delete("/users/{id}", func(ctx *core.CaesarCtx) error {
+    return ctx.SendText("Delete user with id " + ctx.PathValue("id"))
+})
+```
+
+## Route handler
+
+In Caesar, a route handler is a function that is called when a request is made to a specific route. The handler function takes an argument of type [`*CaesarCtx`](https://pkg.go.dev/github.com/caesar-rocks/core#CaesarCtx) and returns an error.
+
+It wraps the standard `http.ResponseWriter` and `http.Request` objects, and provides additional methods to interact with the request and response.
+
+```go
+func(ctx *core.CaesarCtx) error {
+    return ctx.JSON(http.StatusOK, "Hello, World!")
+}
+```
