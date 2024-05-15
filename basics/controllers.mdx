@@ -1,0 +1,16 @@
+---
+title: "Controllers"
+description: "Learn more about controllers in Caesar."
+---
+
+In Caesar, a controller is a struct that wraps [HTTP handlers](./routing#route-handler). Controllers are used to group related handlers together and to provide a way to share common functionality across multiple handlers.
+
+## Creating a controller
+
+To create a controller, you can type the following command in your terminal:
+
+```bash
+caesar make:controller
+```
+
+This command will create a new controller file in the `app/controllers` directory of your app, as well as registering the controller in the `config/app.go` file.

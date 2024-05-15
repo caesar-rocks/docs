@@ -47,7 +47,6 @@ router.Post("/users", func(ctx *core.CaesarCtx) error {
     return ctx.SendText("Create a new user")
 })
 
-
 router.Put("/users/{id}", func(ctx *core.CaesarCtx) error {
     return ctx.SendText("Update user with id " + ctx.PathValue("id"))
 })

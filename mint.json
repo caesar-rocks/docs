@@ -27,7 +27,30 @@
     },
     {
       "group": "Basics",
-      "pages": ["basics/routing", "basics/validation"]
+      "pages": [
+        "basics/routing",
+        "basics/controllers",
+        "basics/views",
+        "basics/validation",
+        "basics/dependency-injection"
+      ]
+    },
+    {
+      "group": "ORM",
+      "pages": [
+        "orm/introduction",
+        "orm/models",
+        "orm/repositories",
+        "orm/migrations"
+      ]
+    },
+    {
+      "group": "Digging Deeper",
+      "pages": [
+        "digging-deeper/auth",
+        "digging-deeper/events",
+        "digging-deeper/mails"
+      ]
     }
   ],
   "footerSocials": {
