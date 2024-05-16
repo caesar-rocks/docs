@@ -1,0 +1,116 @@
+---
+title: Introduction
+description: "Learn more about how to integrate components from CaesarUI into your web app."
+---
+
+Caesar provides a library of components that you can use to build your web app. 
+These components are built using [Templ](https://github.com/a-h/templ) (the recommended template engine), [HTMX](https://htmx.org) (a small JS lib for AJAX requests), and [Tailwind CSS](https://tailwindcss.com) (for styling).
+
+## Installation
+
+<Steps>
+  <Step title="Create a web application">
+   If not already done, create a new web application using the Caesar CLI.
+
+   ```bash
+   caesar new
+   ```
+  </Step>
+  <Step title="Add the Inter font">
+    While you are free to use any font you like, we recommend using the Inter font for your web app.
+
+    Add the Inter font to your project by adding the following line to your `views/app.css` file:
+
+    ```css
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    ```
+
+    Then, register it in your `tailwind.config.js` file:
+
+    ```js
+    module.exports = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+        },
+      },
+    };
+    ```
+  </Step>
+  <Step title="Set up the TailwindCSS Animate plugin">
+    CaesarUI makes use of the [TailwindCSS Animate](https://github.com/jamiebuilds/tailwindcss-animate) plugin to provide animations for its components.
+
+    Install it by running the following command:
+
+    ```bash
+    npm install -D tailwindcss-animate
+    ```
+
+    Then, add it to your `tailwind.config.js` file:
+
+    ```js
+    module.exports = {
+      // ...
+      plugins: [
+        require('tailwindcss-animate'),
+      ],
+    };
+    ```
+  </Step>
+  <Step title="Add your first Caesar component">
+    Now, you can start adding components to your web app.
+
+    For example, to add a button component, you can use the following code:
+
+    ```bash
+    caesar ui:add button
+    ```
+
+    This will add a new button component to your `views/ui` directory, and append some styles in your `views/app.css` file.
+  </Step>
+  <Step title="Use your Caesar component">
+    You can now use the button component in your views.
+
+    For example, to use the button component in your `views/welcome.tmpl` file, you can add the following code:
+
+    ```go
+    package pages
+
+    import (
+        "starter_kit/views/layouts"
+        "starter_kit/views/ui"
+    )
+
+    templ WelcomePage() {
+        @layouts.SharedLayout() {
+            @ui.Button(ui.ButtonProps{
+                Variant: ui.ButtonVariantDanger,
+            }) {
+                Danger
+            }
+        }
+    }
+    ```
+  </Step>
+</Steps>
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Why providing UI components?">
+    [Templ](https://github.com/a-h/templ) and [HTMX](https://htmx.org) are still relatively new in the Go ecosystem, and there are not many resources available to help developers build web apps using these tools. 
+    By providing a library of components, we aim to make it easier for developers to build web apps using Caesar.
+  </Accordion>
+  <Accordion title="Can I customize the components?">
+    Yes, you can customize the components to fit your needs.
+    You can modify the component files in the `views/ui` directory, and the styles in the `views/app.css` file.
+  </Accordion>
+  <Accordion title="Are these components free to use?">
+    Yes, these components are free to use (for personal and commercial use) in your web app.
+    You can modify them, distribute them, and use them in any way you like.
+
+    Moreover, feel free to share what you are building with these UI components.
+  </Accordion>
+</AccordionGroup>

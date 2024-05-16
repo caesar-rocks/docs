@@ -45,11 +45,17 @@
       ]
     },
     {
-      "group": "Digging Deeper",
+      "group": "Advanced",
+      "pages": ["advanced/auth", "advanced/events", "advanced/mails"]
+    },
+    {
+      "group": "UI",
       "pages": [
-        "digging-deeper/auth",
-        "digging-deeper/events",
-        "digging-deeper/mails"
+        "ui/introduction",
+        "ui/button",
+        "ui/input-field",
+        "ui/select-field",
+        "ui/dialog"
       ]
     }
   ],
